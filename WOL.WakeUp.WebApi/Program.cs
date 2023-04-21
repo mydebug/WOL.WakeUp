@@ -16,7 +16,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapPost("/wakeup", (string macAddress, string ipAddress, int port) =>
+app.MapGet("/wakeup", (string macAddress, string ipAddress, int port) =>
 {
     var macBytes = macAddress.Split('-')
                       .Select(x => byte.Parse(x, NumberStyles.HexNumber))
